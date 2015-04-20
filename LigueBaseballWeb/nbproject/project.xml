@@ -13,7 +13,6 @@
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
-                <root id="src.liguebaseballServlet.dir"/>
                 <root id="src.dir"/>
                 <root id="src.src.dir"/>
             </source-roots>

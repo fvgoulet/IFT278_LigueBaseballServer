@@ -25,48 +25,47 @@ public class arbitre extends HttpServlet {
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
-		} else if (request.getParameter("retourner") != null)
-			traiterRetourner(request, response);
-		else if (request.getParameter("test") != null)
-			traiterRenouveler(request, response);
-		else if (request.getParameter("emprunter") != null)
-			traiterEmprunter(request, response);
-		else if (request.getParameter("selectionMembre") != null)
-			traiterSelectionMembre(request, response);
+		} else if (request.getParameter("ajouter") != null)
+			traiterAjouter(request, response);
+
 	}
 
-	public void traiterRetourner(HttpServletRequest request,
+	public void traiterAjouter(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-/*		try {
-			if (request.getParameter("pretSelectionne") == null)
-				throw new BiblioException("Aucun prêt sélectionné");
-			int idLivre = Integer.parseInt(request
-					.getParameter("pretSelectionne"));
-			String dateRetour = (new Date(System.currentTimeMillis()))
-					.toString();
-			GestionBibliotheque biblioUpdate = (GestionBibliotheque) request
-					.getSession().getAttribute("biblioUpdate");
+		try {
+			if (request.getParameter("nom") == null)
+				throw new Exception("Aucun nom entrée");
+			String nom = request.getParameter("nom");
+			if (request.getParameter("prenom") == null)
+				throw new Exception("Aucun prnom entrée");
+			String prenom = request.getParameter("prenom");
+			
+                        
+			Connexion ligueUpdate = (Connexion) request
+					.getSession().getAttribute("ligueUpdate");
 			// exécuter la maj en utilisant synchronized pour s'assurer
 			// que le thread du servlet est le seul à exécuter une transaction
 			// sur biblio
-			synchronized (biblioUpdate) {
-				biblioUpdate.gestionPret.retourner(idLivre, dateRetour);
+			synchronized (ligueUpdate) {
+				ArbitreHandler arbitreH = new ArbitreHandler(ligueUpdate);
+                                arbitreH.inserer(arbitreH.getLastID() + 1, nom, prenom);
+                                ligueUpdate.commit();
 			}
 				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/WEB-INF/listePretMembre.jsp");
+						.getRequestDispatcher("/WEB-INF/arbitre.jsp");
 				dispatcher.forward(request, response);
-		} catch (BiblioException e) {
+		/*} catch (Exception e) {
 			List listeMessageErreur = new LinkedList();
 			listeMessageErreur.add(e.toString());
 			request.setAttribute("listeMessageErreur", listeMessageErreur);
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/WEB-INF/listePretMembre.jsp");
-			dispatcher.forward(request, response);
+					.getRequestDispatcher("/WEB-INF/arbitre.jsp");
+			dispatcher.forward(request, response);*/
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e
 					.toString());
-		}*/
+		}
 	}
 
 	public void traiterRenouveler(HttpServletRequest request,

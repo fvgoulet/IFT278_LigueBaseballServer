@@ -45,5 +45,16 @@
                   </tbody>
                 </table>
           </FORM>
+                  
+          <FORM ACTION="arbitre" METHOD="POST">
+                <BR>
+                <BR>
+                Nom de l'arbitre: <INPUT TYPE="TEXT" NAME="nom" >
+                <BR>
+                <BR>
+                Prenom de l'arbitre : <INPUT TYPE="TEXT" NAME="prenom">
+                <BR>
+                <INPUT TYPE="SUBMIT" NAME="ajouter" VALUE="Ajouter">
+        </FORM>
     </body>
 </html>

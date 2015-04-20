@@ -53,13 +53,15 @@ public class Login extends HttpServlet {
 			Connexion conection = new Connexion(serveur, bd,
 					userId, motDePasse);
 			session.setAttribute("Connexion", conection);
-
+			Connexion ligueUpdate = new Connexion(serveur, bd,
+					userId, motDePasse);
+			session.setAttribute("biblioUpdate", ligueUpdate);
 			// afficher le menu membre en appelant la page selectionMembre.jsp
 			// tous les JSP sont dans /WEB-INF/
 			// ils ne peuvent pas être appelés directement par l'utilisateur
 			// seulement par un autre JSP ou un servlet
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/WEB-INF/Acceuil.jsp");
+					.getRequestDispatcher("/WEB-INF/arbitre.jsp");
 			dispatcher.forward(request, response);
 			session.setAttribute("etat", new Integer(baseballConstantes.CONNECTE));
 		} catch (SQLException e) {

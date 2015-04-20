@@ -14,9 +14,9 @@ public class Arbitre
 {
 
     private final String newLine = "\r\n";
-    int id = -1;
-    String nom = null;
-    String prenom = null;
+    public int id = -1;
+    public String nom = null;
+    public String prenom = null;
 
     /**
      * Default Constructor

@@ -13,10 +13,12 @@
         <table style="width: 50%; text-align: left; margin-left: auto; margin-right: auto;" border="1" cellspacing="2" cellpadding="2">
             <tbody>
                 <tr>
-                    <td> <a href="/LigueBaseballWeb/arbitre"> Arbitre </a> </td>
-                    <td> <a href="/LigueBaseballWeb/equipe"> Equipe </a> </td>
-                    <td> <a href="/LigueBaseballWeb/joueur"> Joueur </a> </td>
-                    <td> <a href="/LigueBaseballWeb/match"> Match </a> </td>
+                                   
+                    <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="arbitrer" VALUE="Arbitre"></FORM></td>
+                    <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="equipe" VALUE="Equipe"></FORM></td>
+                    <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="joueur" VALUE="Joueur"></FORM></td>
+                    <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="match" VALUE="Match"></FORM></td>
+                     <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="logout" VALUE="Logout"></FORM></td>
                 </tr>
             </tbody>
         </table>

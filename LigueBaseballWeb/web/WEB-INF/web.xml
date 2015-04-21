@@ -60,7 +60,10 @@
     <servlet-name>match</servlet-name>
     <servlet-class>liguebaseballServlet.match</servlet-class>
   </servlet>
-
+   <servlet>
+    <servlet-name>header</servlet-name>
+    <servlet-class>liguebaseballServlet.header</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -90,5 +93,10 @@
       <servlet-mapping>
     <servlet-name>match</servlet-name>
     <url-pattern>/match</url-pattern>
+  </servlet-mapping>
+  
+     <servlet-mapping>
+    <servlet-name>header</servlet-name>
+    <url-pattern>/header</url-pattern>
   </servlet-mapping>
 </web-app>

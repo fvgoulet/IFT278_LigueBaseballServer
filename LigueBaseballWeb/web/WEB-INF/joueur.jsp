@@ -58,7 +58,14 @@
                     {%>
                     <td><%=eq.id %></td><td><%=eq.nom %></td>
                  <% 
-                    }%>
+                    }
+                    else if (eq == null)
+                    {
+                        %>
+                        <td></td><td></td>
+                        <%
+                    }
+                   %>
                     <td>Supprimer <input type="submit" name="supprimer" value="<%=j.id%>"/></td>
                 </tr>   
                 <%

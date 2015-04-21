@@ -17,7 +17,7 @@ import liguebaseball.*;
  * Sherbrooke
  */
 
-public class arbitre extends HttpServlet {
+public class equipe extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Integer etat = (Integer) request.getSession().getAttribute("etat");
@@ -36,9 +36,9 @@ public class arbitre extends HttpServlet {
 			if (request.getParameter("nom") == null)
 				throw new Exception("Aucun nom entrée");
 			String nom = request.getParameter("nom");
-			if (request.getParameter("prenom") == null)
-				throw new Exception("Aucun prnom entrée");
-			String prenom = request.getParameter("prenom");
+			if (request.getParameter("terrain") == null)
+				throw new Exception("Aucun terrain entrée");
+			String prenom = request.getParameter("terrain");
 			
                         
 			Connexion ligueUpdate = (Connexion) request
@@ -47,12 +47,12 @@ public class arbitre extends HttpServlet {
 			// que le thread du servlet est le seul à exécuter une transaction
 			// sur biblio
 			synchronized (ligueUpdate) {
-				ArbitreHandler arbitreH = new ArbitreHandler(ligueUpdate);
-                                arbitreH.inserer(arbitreH.getLastID() + 1, nom, prenom);
-                                ligueUpdate.commit();
+				/*EquipeHandler equipeH = new EquipeHandler(ligueUpdate);
+                                equipeH.inserer(equipeH.getLastID() + 1, nom, prenom);
+                                ligueUpdate.commit();*/
 			}
 				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/WEB-INF/arbitre.jsp");
+						.getRequestDispatcher("/WEB-INF/equipe.jsp");
 				dispatcher.forward(request, response);
 		/*} catch (Exception e) {
 			List listeMessageErreur = new LinkedList();

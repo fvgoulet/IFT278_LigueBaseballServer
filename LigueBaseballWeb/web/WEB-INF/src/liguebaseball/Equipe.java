@@ -14,9 +14,9 @@ public class Equipe
 {
 
     private final String newLine = "\r\n";
-    int id = -1;
-    int idTerrain = -1;
-    String nom = null;
+    public int id = -1;
+    public int idTerrain = -1;
+    public String nom = null;
 
     /**
      * Default Constructor

@@ -27,6 +27,7 @@ public class FaitPartieHandler
     private PreparedStatement stmtDelete;
     private PreparedStatement stmtDelete2;
     private PreparedStatement stmtGetAll;
+    private PreparedStatement stmtJoueurInTeamLeftJoin;
 
     /**
      * Parametric Constructor
@@ -40,6 +41,7 @@ public class FaitPartieHandler
         stmtEquipesByJoueur = conn.getConnection().prepareStatement("select * from equipe where equipeid in (select equipeid from faitpartie where joueurid = ?)");
         stmtJoueursByEquipe = conn.getConnection().prepareStatement("select * from joueur where joueur.joueurid in (select joueurid from faitpartie where equipeid = ?)");
         stmtJoueurInTeam = conn.getConnection().prepareStatement("select * from joueur inner join faitpartie on joueur.joueurid = faitpartie.joueurid where faitpartie.equipeid = ?");
+        stmtJoueurInTeamLeftJoin = conn.getConnection().prepareStatement("select * from joueur left join faitpartie on joueur.joueurid = faitpartie.joueurid");
         stmtInsert = conn.getConnection().prepareStatement("insert into faitpartie (joueurid, equipeid, numero, datedebut, datefin) values (?,?,?,?,?)");
         stmtDelete = conn.getConnection().prepareStatement("delete from faitpartie where joueurid = ?");
         stmtDelete2 = conn.getConnection().prepareStatement("delete from faitpartie where equipeid = ?");
@@ -106,6 +108,32 @@ public class FaitPartieHandler
         ArrayList<JoueurInTeam> joueurs = new ArrayList();
         stmtJoueurInTeam.setInt(1, equipeID);
         ResultSet result = stmtJoueurInTeam.executeQuery();
+        while (result.next())
+        {
+            JoueurInTeam temp = new JoueurInTeam();
+            temp.id = result.getInt(1);
+            temp.nom = result.getString(2);
+            temp.prenom = result.getString(3);
+            temp.equipeid = result.getInt(5);
+            temp.numero = result.getInt(6);
+            temp.debut = result.getDate(7);
+            temp.fin = result.getDate(8);
+            joueurs.add(temp);
+        }
+        result.close();
+        return joueurs;
+    }
+    
+    /**
+     * Get all JoueurInTeam and Joueurs in no team
+     * 
+     * @return All Joueurs related to their team if they're in a team
+     * @throws SQLException  SQLException If there is any error with the connection to the DB
+     */
+    public ArrayList<JoueurInTeam> getAllJoueursInTeamLeftJoin() throws SQLException
+    {
+        ArrayList<JoueurInTeam> joueurs = new ArrayList();
+        ResultSet result = stmtJoueurInTeamLeftJoin.executeQuery();
         while (result.next())
         {
             JoueurInTeam temp = new JoueurInTeam();

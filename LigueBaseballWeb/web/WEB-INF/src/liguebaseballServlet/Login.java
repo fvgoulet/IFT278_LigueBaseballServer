@@ -27,9 +27,7 @@ public class Login extends HttpServlet
             if (session.getAttribute("etat") != null)
             {
                 // pour déboggage seulement : afficher no session et information
-                System.out
-                        .println("GestionBibliotheque: session déja crée; id="
-                                + session.getId());
+                System.out.println("GestionBibliotheque: session déja crée; id="+ session.getId());
                 // la méthode invalidate appelle le listener
                 // BiblioSessionListener; cette classe est chargée lors du
                 // démarrage de
@@ -52,18 +50,15 @@ public class Login extends HttpServlet
              * seulement et une autre en mode serialisable, pour les transactions
              */
             System.out.println("Login: session id=" + session.getId());
-            Connexion conection = new Connexion(serveur, bd,
-                    userId, motDePasse);
+            Connexion conection = new Connexion(serveur, bd, userId, motDePasse);
             session.setAttribute("Connexion", conection);
-            Connexion ligueUpdate = new Connexion(serveur, bd,
-                    userId, motDePasse);
+            Connexion ligueUpdate = new Connexion(serveur, bd, userId, motDePasse);
             session.setAttribute("ligueUpdate", ligueUpdate);
             // afficher le menu membre en appelant la page selectionMembre.jsp
             // tous les JSP sont dans /WEB-INF/
             // ils ne peuvent pas être appelés directement par l'utilisateur
             // seulement par un autre JSP ou un servlet
-            RequestDispatcher dispatcher = request
-                    .getRequestDispatcher("/WEB-INF/equipe.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/equipe.jsp");
             dispatcher.forward(request, response);
             session.setAttribute("etat", new Integer(baseballConstantes.CONNECTE));
         }
@@ -73,8 +68,7 @@ public class Login extends HttpServlet
             listeMessageErreur.add("Erreur de connexion au serveur");
             listeMessageErreur.add(e.toString());
             request.setAttribute("listeMessageErreur", listeMessageErreur);
-            RequestDispatcher dispatcher = request
-                    .getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
             dispatcher.forward(request, response);
             // pour déboggage seulement : afficher tout le contenu de
             // l'exception
@@ -83,8 +77,7 @@ public class Login extends HttpServlet
         catch (Exception e)
         {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-                    e.toString());
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.toString());
         }
     }
 

@@ -102,7 +102,7 @@ public class joueur extends HttpServlet
     {
         try
         {
-            if (request.getParameter("nom") == null)
+           /* if (request.getParameter("nom") == null)
             {
                 throw new Exception("Aucun nom entrée");
             }
@@ -112,7 +112,7 @@ public class joueur extends HttpServlet
                 throw new Exception("Aucun pernom entrée");
             }
             String prenom = request.getParameter("prenom");
-
+*/
             Connexion ligueUpdate = (Connexion) request.getSession().getAttribute("Connexion");
             
             // exécuter la maj en utilisant synchronized pour s'assurer
@@ -121,7 +121,7 @@ public class joueur extends HttpServlet
             synchronized (ligueUpdate)
             {
                 JoueurHandler joueurH = new JoueurHandler(ligueUpdate);
-                int id = joueurH.getJoueurId(nom, prenom).id;
+                int id = Integer.parseInt(request.getParameter("supprimer"));
                 joueurH.supprimer(id);
                 ligueUpdate.commit();
             }

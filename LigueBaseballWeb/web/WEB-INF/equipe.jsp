@@ -41,7 +41,7 @@
                 for (Equipe equipe : list)
                 {
             %> 
-            <tr><td><%=equipe.id %></td><td><%=equipe.nom %></td></tr>   
+            <tr><td><%=equipe.id %></td><td><%=equipe.nom %></td><td>Supprimer <input type="submit" name="supprimer" value="<%=equipe.id%>"/> </td></tr>   
             <%       
                 }
             %>
@@ -61,15 +61,7 @@
         </FORM>
                   
  
-        </FORM>
-                  
-                  <FORM ACTION="equipe" METHOD="POST">
-                <BR>
-                <BR>
-                Nom de l'equipe: <INPUT TYPE="TEXT" NAME="nom" >
-                <BR>
-           <INPUT TYPE="SUBMIT" NAME="supprimer" VALUE="Supprimer">
-        </FORM>
+                 
                   
                   
                   

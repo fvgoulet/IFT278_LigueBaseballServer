@@ -94,11 +94,11 @@ public class equipe extends HttpServlet
     {
         try
         {
-            if (request.getParameter("nom") == null)
+            if (request.getParameter("supprimer") == null)
             {
                 throw new Exception("Aucun nom entrée");
             }
-            String nom = request.getParameter("nom");
+          /*  String nom = request.getParameter("nom");*/
             Connexion ligueUpdate = (Connexion) request.getSession().getAttribute("Connexion");
 
 
@@ -110,7 +110,7 @@ public class equipe extends HttpServlet
             {
      
                 EquipeHandler equipeH = new EquipeHandler(ligueUpdate);
-                int id = equipeH.getEquipe(nom).id;
+                int id =  Integer.parseInt(request.getParameter("supprimer"));
                  equipeH.supprimer(id);
                  ligueUpdate.commit();
             }

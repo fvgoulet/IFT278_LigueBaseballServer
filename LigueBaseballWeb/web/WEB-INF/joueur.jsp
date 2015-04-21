@@ -16,7 +16,7 @@
     </head>
     <body>
         <h1>Liste des joueurs</h1>
-        <FORM ACTION="test" METHOD="GET">
+        <FORM ACTION="joueur" METHOD="GET">
             <%
               // calcul de la liste de prêts du membre
               Connexion ligueInterrogation = (Connexion) session.getAttribute("Connexion");
@@ -59,6 +59,7 @@
                     <td><%=eq.id %></td><td><%=eq.nom %></td>
                  <% 
                     }%>
+                    <td>Supprimer <input type="submit" name="supprimer" value="<%=j.id%>"/></td>
                 </tr>   
                 <%
             }
@@ -70,7 +71,7 @@
                             for (Joueur j : joueurList)
                             {
                                 %>
-                                <tr><td><%=j.id %></td><td><%=j.nom %></td><td><%=j.prenom %></td><td><%=eq.id %></td><td><%=eq.nom %></td></tr>
+                                    <tr><td><%=j.id %></td><td><%=j.nom %></td><td><%=j.prenom %></td><td><%=eq.id %></td><td><%=eq.nom %></td><td>Supprimer <input type="submit" name="supprimer" value="<%=j.id%>"/></td></tr>
                                 <%
                             }
                         }
@@ -102,15 +103,5 @@
            <INPUT TYPE="SUBMIT" NAME="ajouter" VALUE="Ajouter">
         </FORM>
                 
-                <FORM ACTION="joueur" METHOD="POST">
-                <BR>
-                <BR>
-                Nom du joueur : <INPUT TYPE="TEXT" NAME="nom" >
-                <BR>
-                <BR>
-                Prenom du joueur : <INPUT TYPE="TEXT" NAME="prenom">
-                <BR>
-           <INPUT TYPE="SUBMIT" NAME="supprimer" VALUE="Supprimer">
-        </FORM>
     </body>
 </html>

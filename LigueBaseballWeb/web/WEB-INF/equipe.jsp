@@ -55,6 +55,14 @@
            <INPUT TYPE="SUBMIT" NAME="ajouter" VALUE="Ajouter">
         </FORM>
                   
+                  <FORM ACTION="equipe" METHOD="POST">
+                <BR>
+                <BR>
+                Nom de l'equipe: <INPUT TYPE="TEXT" NAME="nom" >
+                <BR>
+           <INPUT TYPE="SUBMIT" NAME="supprimer" VALUE="Supprimer">
+        </FORM>
+                  
                   
                   
     </body>

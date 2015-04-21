@@ -30,7 +30,10 @@ public class equipe extends HttpServlet
         {
             traiterAjouter(request, response);
         }
-
+   else if (request.getParameter("supprimer") != null)
+        {
+            traiterSupprimer(request, response);
+        }
     }
 
     public void traiterAjouter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -60,6 +63,47 @@ public class equipe extends HttpServlet
      
                 EquipeHandler equipeH = new EquipeHandler(ligueUpdate);
                  equipeH.inserer(equipeH.getLastID() + 1,id, nom);
+                 ligueUpdate.commit();
+            }
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/equipe.jsp");
+            dispatcher.forward(request, response);
+            /*} catch (Exception e) {
+             List listeMessageErreur = new LinkedList();
+             listeMessageErreur.add(e.toString());
+             request.setAttribute("listeMessageErreur", listeMessageErreur);
+             RequestDispatcher dispatcher = request
+             .getRequestDispatcher("/WEB-INF/arbitre.jsp");
+             dispatcher.forward(request, response);*/
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.toString());
+        }
+    }
+
+      public void traiterSupprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        try
+        {
+            if (request.getParameter("nom") == null)
+            {
+                throw new Exception("Aucun nom entrée");
+            }
+            String nom = request.getParameter("nom");
+            Connexion ligueUpdate = (Connexion) request.getSession().getAttribute("Connexion");
+
+
+           
+			// exécuter la maj en utilisant synchronized pour s'assurer
+            // que le thread du servlet est le seul à exécuter une transaction
+            // sur biblio
+            synchronized (ligueUpdate)
+            {
+     
+                EquipeHandler equipeH = new EquipeHandler(ligueUpdate);
+                int id = equipeH.getEquipe(nom).id;
+                 equipeH.supprimer(id);
                  ligueUpdate.commit();
             }
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/equipe.jsp");

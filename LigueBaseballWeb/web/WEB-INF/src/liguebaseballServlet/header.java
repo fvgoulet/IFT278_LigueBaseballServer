@@ -49,6 +49,11 @@ public class header extends HttpServlet
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/match.jsp");
             dispatcher.forward(request, response);
         }
+        else if (request.getParameter("xml") != null)
+        {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/equipe.jsp");
+            dispatcher.forward(request, response);
+        }
         else if (request.getParameter("logout") != null)
         {
             RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");

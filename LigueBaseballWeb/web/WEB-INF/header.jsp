@@ -21,6 +21,7 @@
                     <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="equipe" VALUE="Equipe"></FORM></td>
                     <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="joueur" VALUE="Joueur"></FORM></td>
                     <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="match" VALUE="Match"></FORM></td>
+                     <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="xml" VALUE="Xml"></FORM></td>
                      <td> <FORM ACTION="header" METHOD="POST"><INPUT TYPE="SUBMIT" NAME="logout" VALUE="Logout"></FORM></td>
                 </tr>
             </tbody>

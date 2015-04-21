@@ -33,6 +33,10 @@ public class joueur extends HttpServlet
         {
             traiterAjouter(request, response);
         }
+            else if (request.getParameter("byEquipe") != null)
+        {
+            traiterByEquipe(request, response);
+        }
 
     }
 
@@ -51,7 +55,7 @@ public class joueur extends HttpServlet
             }
             String prenom = request.getParameter("prenom");
 
-            Connexion ligueUpdate = (Connexion) request.getSession().getAttribute("ligueUpdate");
+            Connexion ligueUpdate = (Connexion) request.getSession().getAttribute("Connexion");
             
             // exécuter la maj en utilisant synchronized pour s'assurer
             // que le thread du servlet est le seul à exécuter une transaction
@@ -62,7 +66,7 @@ public class joueur extends HttpServlet
                 arbitreH.inserer(arbitreH.getLastID() + 1, nom, prenom);
                 ligueUpdate.commit();
             }
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/arbitre.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/src/joueur.jsp");
             dispatcher.forward(request, response);
             /*} catch (Exception e) {
              List listeMessageErreur = new LinkedList();
@@ -79,34 +83,29 @@ public class joueur extends HttpServlet
         }
     }
 
-    public void traiterRenouveler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    public void traiterByEquipe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        /*	try {
-         if (request.getParameter("pretSelectionne") == null)
-         throw new BiblioException("Aucun prêt sélectionné");
-         int idLivre = Integer.parseInt(request
-         .getParameter("pretSelectionne"));
-         String datePret = (new Date(System.currentTimeMillis())).toString();
-         GestionBibliotheque biblioUpdate = (GestionBibliotheque) request
-         .getSession().getAttribute("biblioUpdate");
-         synchronized (biblioUpdate) {
-         biblioUpdate.gestionPret.renouveler(idLivre, datePret);
-         }
+        try {
+         if (request.getParameter("equipe") == null)
+               throw new Exception("Aucune équipe entréee");
+         int idEquipe = Integer.parseInt(request
+         .getParameter("equipe"));
+         request.getSession().setAttribute("equipe", idEquipe);
          RequestDispatcher dispatcher = request
-         .getRequestDispatcher("/WEB-INF/listePretMembre.jsp");
+         .getRequestDispatcher("/WEB-INF/joueur.jsp");
          dispatcher.forward(request, response);
-         } catch (BiblioException e) {
+         } /*catch (Exception e) {
          List listeMessageErreur = new LinkedList();
          listeMessageErreur.add(e.toString());
          request.setAttribute("listeMessageErreur", listeMessageErreur);
          RequestDispatcher dispatcher = request
          .getRequestDispatcher("/WEB-INF/listePretMembre.jsp");
          dispatcher.forward(request, response);
-         } catch (Exception e) {
+         } */catch (Exception e) {
          e.printStackTrace();
          response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e
          .toString());
-         }*/
+         }
     }
 
     public void traiterEmprunter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

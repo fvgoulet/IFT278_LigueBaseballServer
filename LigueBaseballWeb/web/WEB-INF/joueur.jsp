@@ -83,5 +83,27 @@
                 <BR>
                 <INPUT TYPE="SUBMIT" NAME="byEquipe" VALUE="Equipe">
         </FORM>
+                
+                 <FORM ACTION="joueur" METHOD="POST">
+                <BR>
+                <BR>
+                Nom du joueur : <INPUT TYPE="TEXT" NAME="nom" >
+                <BR>
+                <BR>
+                Prenom du joueur : <INPUT TYPE="TEXT" NAME="prenom">
+                <BR>
+           <INPUT TYPE="SUBMIT" NAME="ajouter" VALUE="Ajouter">
+        </FORM>
+                
+                <FORM ACTION="joueur" METHOD="POST">
+                <BR>
+                <BR>
+                Nom du joueur : <INPUT TYPE="TEXT" NAME="nom" >
+                <BR>
+                <BR>
+                Prenom du joueur : <INPUT TYPE="TEXT" NAME="prenom">
+                <BR>
+           <INPUT TYPE="SUBMIT" NAME="supprimer" VALUE="Supprimer">
+        </FORM>
     </body>
 </html>

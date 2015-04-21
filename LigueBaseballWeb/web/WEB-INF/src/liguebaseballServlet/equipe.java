@@ -46,17 +46,21 @@ public class equipe extends HttpServlet
             {
                 throw new Exception("Aucun terrain entrée");
             }
-            String prenom = request.getParameter("terrain");
-
             Connexion ligueUpdate = (Connexion) request.getSession().getAttribute("Connexion");
+            String terrain = request.getParameter("terrain");
+            TerrainHandler terrainH = new TerrainHandler(ligueUpdate);
+            int id = terrainH.getTerrain(terrain).id;
+
+           
 			// exécuter la maj en utilisant synchronized pour s'assurer
             // que le thread du servlet est le seul à exécuter une transaction
             // sur biblio
             synchronized (ligueUpdate)
             {
-                /*EquipeHandler equipeH = new EquipeHandler(ligueUpdate);
-                 equipeH.inserer(equipeH.getLastID() + 1, nom, prenom);
-                 ligueUpdate.commit();*/
+     
+                EquipeHandler equipeH = new EquipeHandler(ligueUpdate);
+                 equipeH.inserer(equipeH.getLastID() + 1,id, nom);
+                 ligueUpdate.commit();
             }
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/equipe.jsp");
             dispatcher.forward(request, response);

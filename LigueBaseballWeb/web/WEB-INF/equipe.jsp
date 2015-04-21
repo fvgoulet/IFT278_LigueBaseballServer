@@ -44,6 +44,18 @@
                   </tbody>
                 </table>
           </FORM>
+          <FORM ACTION="equipe" METHOD="POST">
+                <BR>
+                <BR>
+                Nom de l'equipe: <INPUT TYPE="TEXT" NAME="nom" >
+                <BR>
+                <BR>
+                nom du terrain: <INPUT TYPE="TEXT" NAME="terrain">
+                <BR>
+           <INPUT TYPE="SUBMIT" NAME="ajouter" VALUE="Ajouter">
+        </FORM>
+                  
+                  
                   
     </body>
 </html>

@@ -25,6 +25,7 @@
               JoueurHandler handler = new JoueurHandler(ligueInterrogation);
             //  int liste = handler.getAll().size();
             %>
+            <div class="CSSTableGenerator" >
                 <table
                 style="width: 50%; text-align: left; margin-left: auto; margin-right: auto;"
                 border="1" cellspacing="2" cellpadding="2">
@@ -76,6 +77,7 @@
                 %>
      
                   </tbody>
+                </duv>
                 </table>
           </FORM>
                 

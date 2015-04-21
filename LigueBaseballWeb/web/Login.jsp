@@ -4,6 +4,9 @@
 <HEAD>
 <TITLE>IFT287 - Système de gestion de ligue de baseball</TITLE>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<style type="text/css">
+    <%@ include file="/WEB-INF/newcss.css" %>
+</style> 
 <META NAME="author" CONTENT="Marc Frappier">
 <META NAME="description"
 CONTENT="page d'accueil système de gestion de Joueur.">

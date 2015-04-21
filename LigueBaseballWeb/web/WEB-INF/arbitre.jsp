@@ -11,6 +11,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="header.jsp" />
+        <style type="text/css">
+    <%@ include file="/WEB-INF/newcss.css" %>
+</style> 
     </head>
     <body>
         <h1>Liste des arbitres</h1>
@@ -23,6 +26,7 @@
               ArbitreHandler handler = new ArbitreHandler(ligueInterrogation);
             //  int liste = handler.getAll().size();
             %>
+            <div class="CSSTableGenerator" >
                 <table
                 style="width: 50%; text-align: left; margin-left: auto; margin-right: auto;"
                 border="1" cellspacing="2" cellpadding="2">
@@ -44,6 +48,7 @@
             %>
                   </tbody>
                 </table>
+            </div>
           </FORM>
                   
           <FORM ACTION="arbitre" METHOD="POST">

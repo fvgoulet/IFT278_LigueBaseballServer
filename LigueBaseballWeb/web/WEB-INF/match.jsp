@@ -10,24 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="header.jsp" />
+<style type="text/css">
+    <%@ include file="/WEB-INF/newcss.css" %>
+</style> 
     </head>
     <body>
         <h1>Liste des matchs</h1>
            
-                <FORM ACTION="match" METHOD="POST">
-                <BR>
-                <BR>
-                nom de l'Équipe: <INPUT TYPE="TEXT" NAME="equipe" >
-                <BR>
-                <INPUT TYPE="SUBMIT" NAME="byEquipe" VALUE="Trier">
-                
-                
-                <FORM ACTION="match" METHOD="POST">
-                <BR>
-                <BR>
-                Date: <INPUT TYPE="TEXT" NAME="date" >
-                <BR>
-                <INPUT TYPE="SUBMIT" NAME="byDate" VALUE="Date">
+      
                 
         <FORM ACTION="test" METHOD="GET">
             <%
@@ -39,6 +29,7 @@
               ArbitrerHandler arbitrerHandler = new ArbitrerHandler(ligueInterrogation);
             //  int liste = handler.getAll().size();
             %>
+            <div class="CSSTableGenerator" >
                 <table
                 style="width: 50%; text-align: left; margin-left: auto; margin-right: auto;"
                 border="1" cellspacing="2" cellpadding="2">
@@ -131,7 +122,21 @@
             %>
                   </tbody>
                 </table>
+                  </<div>
           </FORM>
-                  
+                            <FORM ACTION="match" METHOD="POST">
+                <BR>
+                <BR>
+                nom de l'Équipe: <INPUT TYPE="TEXT" NAME="equipe" >
+                <BR>
+                <INPUT TYPE="SUBMIT" NAME="byEquipe" VALUE="Trier">
+                
+                
+                <FORM ACTION="match" METHOD="POST">
+                <BR>
+                <BR>
+                Date: <INPUT TYPE="TEXT" NAME="date" >
+                <BR>
+                <INPUT TYPE="SUBMIT" NAME="byDate" VALUE="Date">
     </body>
 </html>

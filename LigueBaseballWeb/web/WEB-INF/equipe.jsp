@@ -11,10 +11,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="header.jsp" />
+        <style type="text/css">
+    <%@ include file="/WEB-INF/newcss.css" %>
+</style> 
     </head>
     <body>
         <h1>Liste des equipes</h1>
-        <FORM ACTION="test" METHOD="GET">
+        <FORM ACTION="equipe" METHOD="GET">
             <%
               // calcul de la liste de prêts du membre
               Connexion ligueInterrogation = (Connexion) session.getAttribute("Connexion");
@@ -23,6 +26,7 @@
               EquipeHandler handler = new EquipeHandler(ligueInterrogation);
             //  int liste = handler.getAll().size();
             %>
+            <div class="CSSTableGenerator" >
                 <table
                 style="width: 50%; text-align: left; margin-left: auto; margin-right: auto;"
                 border="1" cellspacing="2" cellpadding="2">
@@ -43,6 +47,7 @@
             %>
                   </tbody>
                 </table>
+            </div>
           </FORM>
           <FORM ACTION="equipe" METHOD="POST">
                 <BR>
@@ -53,6 +58,9 @@
                 nom du terrain: <INPUT TYPE="TEXT" NAME="terrain">
                 <BR>
            <INPUT TYPE="SUBMIT" NAME="ajouter" VALUE="Ajouter">
+        </FORM>
+                  
+ 
         </FORM>
                   
                   <FORM ACTION="equipe" METHOD="POST">

@@ -9,6 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style type="text/css">
+    <%@ include file="/WEB-INF/newcss.css" %>
+</style> 
         <title>Gestion baseball</title>
         <table style="width: 50%; text-align: left; margin-left: auto; margin-right: auto;" border="1" cellspacing="2" cellpadding="2">
             <tbody>

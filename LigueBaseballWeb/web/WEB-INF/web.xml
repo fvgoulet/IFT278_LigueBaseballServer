@@ -51,6 +51,12 @@
     <servlet-class>liguebaseballServlet.equipe</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>joueur</servlet-name>
+    <servlet-class>liguebaseballServlet.joueur</servlet-class>
+  </servlet>
+
+
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
@@ -69,5 +75,10 @@
   <servlet-mapping>
     <servlet-name>equipe</servlet-name>
     <url-pattern>/equipe</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>joueur</servlet-name>
+    <url-pattern>/joueur</url-pattern>
   </servlet-mapping>
 </web-app>

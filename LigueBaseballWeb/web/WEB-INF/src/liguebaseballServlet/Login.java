@@ -58,7 +58,7 @@ public class Login extends HttpServlet
             // tous les JSP sont dans /WEB-INF/
             // ils ne peuvent pas être appelés directement par l'utilisateur
             // seulement par un autre JSP ou un servlet
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/equipe.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/match.jsp");
             dispatcher.forward(request, response);
             session.setAttribute("etat", new Integer(baseballConstantes.CONNECTE));
         }
@@ -79,7 +79,7 @@ public class Login extends HttpServlet
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.toString());
         }
-    }
+        }
 
     // Dans les formulaire, on utilise la méthode POST
     // donc, si le servlet est appelé avec la méthode GET

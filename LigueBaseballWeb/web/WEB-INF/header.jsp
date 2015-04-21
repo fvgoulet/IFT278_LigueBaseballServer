@@ -13,8 +13,11 @@
         <table style="width: 50%; text-align: left; margin-left: auto; margin-right: auto;" border="1" cellspacing="2" cellpadding="2">
             <tbody>
                 <tr>
-                    <td> <a href="/LigueBaseballWeb/arbitre"> Arbitre </a> </td>
-                    <td> <a href="/LigueBaseballWeb/equipe"> Equipe </a> </td>
+                    <td> <%
+
+    response.sendRedirect("/LigueBaseballWeb/equipe");
+%></td>
+                    <td> <a href="/LigueBaseballWeb/web/WEB-INF/src/equipe.jsp"> Equipe </a> </td>
                     <td> <a href="/LigueBaseballWeb/joueur"> Joueur </a> </td>
                     <td> <a href="/LigueBaseballWeb/match"> Match </a> </td>
                 </tr>

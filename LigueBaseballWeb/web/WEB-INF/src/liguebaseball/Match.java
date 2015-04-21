@@ -16,16 +16,16 @@ public class Match
 {
 
     private final String newLine = "\r\n";
-    int id;
-    int equipelocal;
-    int equipevisiteur;
-    int terrainid;
-    Date date;
-    Time heure;
-    int pointslocal;
-    int pointsvisiteur;
+    public int id;
+    public int equipelocal;
+    public int equipevisiteur;
+    public int terrainid;
+    public Date date;
+    public Time heure;
+    public int pointslocal;
+    public int pointsvisiteur;
 
-    /**
+    /**1
      * Default constructor
      */
     public Match()

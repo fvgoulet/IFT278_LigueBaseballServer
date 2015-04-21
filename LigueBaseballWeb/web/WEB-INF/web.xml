@@ -55,6 +55,11 @@
     <servlet-name>joueur</servlet-name>
     <servlet-class>liguebaseballServlet.joueur</servlet-class>
   </servlet>
+  
+   <servlet>
+    <servlet-name>match</servlet-name>
+    <servlet-class>liguebaseballServlet.match</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -80,5 +85,10 @@
     <servlet-mapping>
     <servlet-name>joueur</servlet-name>
     <url-pattern>/joueur</url-pattern>
+  </servlet-mapping>
+  
+      <servlet-mapping>
+    <servlet-name>match</servlet-name>
+    <url-pattern>/match</url-pattern>
   </servlet-mapping>
 </web-app>

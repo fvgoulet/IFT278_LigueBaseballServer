@@ -158,18 +158,6 @@ public class joueur extends HttpServlet
          }
     }
 
-    public void traiterEmprunter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/emprunt.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    public void traiterSelectionMembre(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/selectionMembre.jsp");
-        dispatcher.forward(request, response);
-    }
-
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

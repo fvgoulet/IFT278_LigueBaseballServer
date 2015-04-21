@@ -9,10 +9,9 @@ import javax.servlet.http.*;
 import liguebaseball.Connexion;
 
 /**
- * Classe pour login système de gestion de bibliothèque
+ * Classe pour login système de gestion de liguebaseball
  * <P>
- * Système de gestion de bibliothèque &copy; 2004 Marc Frappier, Université de
- * Sherbrooke
+ * Système de gestion de liguebaseball Université de Sherbrooke
  */
 public class Login extends HttpServlet
 {
@@ -27,14 +26,14 @@ public class Login extends HttpServlet
             if (session.getAttribute("etat") != null)
             {
                 // pour déboggage seulement : afficher no session et information
-                System.out.println("GestionBibliotheque: session déja crée; id="+ session.getId());
+                System.out.println("session déja crée; id="+ session.getId());
                 // la méthode invalidate appelle le listener
                 // BiblioSessionListener; cette classe est chargée lors du
                 // démarrage de
                 // l'application par le serveur (voir le fichier web.xml)
                 session.invalidate();
                 session = request.getSession();
-                System.out.println("GestionBibliotheque: session invalidée");
+                System.out.println(" session invalidée");
             }
 
             // lecture des paramètres du formulaire login.jsp

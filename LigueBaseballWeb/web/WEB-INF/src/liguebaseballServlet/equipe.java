@@ -30,7 +30,7 @@ public class equipe extends HttpServlet
         {
             traiterAjouter(request, response);
         }
-   else if (request.getParameter("supprimer") != null)
+        else if (request.getParameter("supprimer") != null)
         {
             traiterSupprimer(request, response);
         }
@@ -123,48 +123,7 @@ public class equipe extends HttpServlet
         }
     }
 
-    public void traiterRenouveler(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
-    {
-        /*	try {
-         if (request.getParameter("pretSelectionne") == null)
-         throw new BiblioException("Aucun prêt sélectionné");
-         int idLivre = Integer.parseInt(request
-         .getParameter("pretSelectionne"));
-         String datePret = (new Date(System.currentTimeMillis())).toString();
-         GestionBibliotheque biblioUpdate = (GestionBibliotheque) request
-         .getSession().getAttribute("biblioUpdate");
-         synchronized (biblioUpdate) {
-         biblioUpdate.gestionPret.renouveler(idLivre, datePret);
-         }
-         RequestDispatcher dispatcher = request
-         .getRequestDispatcher("/WEB-INF/listePretMembre.jsp");
-         dispatcher.forward(request, response);
-         } catch (BiblioException e) {
-         List listeMessageErreur = new LinkedList();
-         listeMessageErreur.add(e.toString());
-         request.setAttribute("listeMessageErreur", listeMessageErreur);
-         RequestDispatcher dispatcher = request
-         .getRequestDispatcher("/WEB-INF/listePretMembre.jsp");
-         dispatcher.forward(request, response);
-         } catch (Exception e) {
-         e.printStackTrace();
-         response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e
-         .toString());
-         }*/
-    }
-
-    public void traiterEmprunter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/emprunt.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    public void traiterSelectionMembre(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/selectionMembre.jsp");
-        dispatcher.forward(request, response);
-    }
-
+  
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         doGet(request, response);

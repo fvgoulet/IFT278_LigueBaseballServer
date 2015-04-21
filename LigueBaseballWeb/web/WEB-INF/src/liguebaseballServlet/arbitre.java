@@ -10,10 +10,9 @@ import javax.servlet.http.*;
 import liguebaseball.*;
 
 /**
- * Classe traitant la requête provenant de la page listePretMembre.jsp
+ * Classe traitant les rêquetes provenant de la page arbitre.jsp
  * <P>
- * Système de gestion de bibliothèque &copy; 2004 Marc Frappier, Université de
- * Sherbrooke
+ * Système de gestion de liguebaseball Université de Sherbrooke
  */
 public class arbitre extends HttpServlet
 {

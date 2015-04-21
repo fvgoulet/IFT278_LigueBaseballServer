@@ -6,8 +6,7 @@ import java.util.*;
 /**
  * Classe pour gestion des sessions
  * <P>
- * Syst�me de gestion de biblioth�que &copy; 2004 Marc Frappier, Universit� de
- * Sherbrooke
+ * Syst�me de gestion de liguebaseball, Université de  Sherbrooke
  */
 
 public class liguebaseballContextListener implements ServletContextListener {
@@ -27,6 +26,6 @@ public class liguebaseballContextListener implements ServletContextListener {
 
 	public void contextDestroyed(ServletContextEvent sce) {
 		System.out
-				.println("Le contexte de l'application GestionBibliotheque vient d'�tre d�truit.");
+				.println("Le contexte de l'application liguebaseball vient d'�tre d�truit.");
 	}
 }

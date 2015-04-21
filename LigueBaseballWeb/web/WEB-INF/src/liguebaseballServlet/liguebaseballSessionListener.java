@@ -9,8 +9,7 @@ import java.sql.*;
 /**
  * Classe pour gestion des sessions
  * <P>
- * Syst�me de gestion de biblioth�que &copy; 2004 Marc Frappier, Universit� de
- * Sherbrooke
+ * Syst�me de gestion de liguebaseball Universit� de Sherbrooke
  */
 public class liguebaseballSessionListener implements HttpSessionListener
 {
@@ -21,7 +20,7 @@ public class liguebaseballSessionListener implements HttpSessionListener
 
     public void sessionDestroyed(HttpSessionEvent se)
     {
-        System.out.println("BiblioSessionListener " + se.getSession().getId());
+        System.out.println("LiguebaseballListener " + se.getSession().getId());
         Connexion connect = (Connexion) se.getSession().getAttribute("Connexion");
         if (connect != null)
         {

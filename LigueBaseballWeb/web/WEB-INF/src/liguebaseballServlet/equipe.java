@@ -10,10 +10,9 @@ import javax.servlet.http.*;
 import liguebaseball.*;
 
 /**
- * Classe traitant la requête provenant de la page listePretMembre.jsp
+ * Classe traitant les rêquetes provenant de la page equipe.jsp
  * <P>
- * Système de gestion de bibliothèque &copy; 2004 Marc Frappier, Université de
- * Sherbrooke
+ * Système de gestion de liguebaseball Université de Sherbrooke
  */
 public class equipe extends HttpServlet
 {
@@ -35,7 +34,11 @@ public class equipe extends HttpServlet
             traiterSupprimer(request, response);
         }
     }
-
+    /**
+     * Ajout d'un equipe
+     *
+     * @author steven
+     */
     public void traiterAjouter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         try
@@ -82,6 +85,11 @@ public class equipe extends HttpServlet
         }
     }
 
+     /**
+     * Supprimer une equipe
+     *
+     * @author steven
+     */
       public void traiterSupprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         try

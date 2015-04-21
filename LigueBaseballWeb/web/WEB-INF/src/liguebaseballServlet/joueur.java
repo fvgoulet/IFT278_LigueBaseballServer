@@ -17,8 +17,9 @@ import liguebaseball.Joueur;
 import liguebaseball.JoueurHandler;
 
 /**
- *
- * @author fvgou_000
+ * Classe traitant les rêquetes provenant de la page joueur.jsp
+ * <P>
+ * Système de gestion de liguebaseball Université de Sherbrooke
  */
 public class joueur extends HttpServlet
 {
@@ -45,6 +46,11 @@ public class joueur extends HttpServlet
 
     }
 
+     /**
+     * Ajout d'un joueur
+     *
+     * @author steven
+     */
     public void traiterAjouter(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         try
@@ -87,7 +93,11 @@ public class joueur extends HttpServlet
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.toString());
         }
     }
-
+    /**
+     * Supprimer un joueur
+     *
+     * @author steven
+     */
     public void traiterSupprimer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         try
@@ -132,7 +142,11 @@ public class joueur extends HttpServlet
         }
     }
     
-    
+     /**
+     * trier par equipe
+     *
+     * @author steven
+     */
     public void traiterByEquipe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         try {

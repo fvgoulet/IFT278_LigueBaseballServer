@@ -130,7 +130,7 @@ public class FaitPartieHandler
      * @return All Joueurs related to their team if they're in a team
      * @throws SQLException  SQLException If there is any error with the connection to the DB
      */
-    public ArrayList<JoueurInTeam> getJoueurInTeamLestJoin() throws SQLException
+    public ArrayList<JoueurInTeam> getAllJoueursInTeamLeftJoin() throws SQLException
     {
         ArrayList<JoueurInTeam> joueurs = new ArrayList();
         ResultSet result = stmtJoueurInTeamLeftJoin.executeQuery();

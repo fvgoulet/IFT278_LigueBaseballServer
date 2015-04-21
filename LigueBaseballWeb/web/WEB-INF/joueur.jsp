@@ -6,7 +6,7 @@
 
 
 <%@page import="java.util.ArrayList"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" import="liguebaseball.*" import="java.lang.Integer.*" import="java.util.Map" import="java.util.ArrayList"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="liguebaseball.*" import="java.lang.Integer.*" import="java.util.Map" import="java.util.ArrayList" import="liguebaseball.JoueurInTeam"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,17 +43,22 @@
               JoueurHandler joueurHandler = new JoueurHandler(ligueInterrogation);
               if ((Integer) (session.getAttribute("equipe")) == null)
               {
-              Map<Integer, Integer> FaitPartie = faitpartieHandler.getAll();
+             ArrayList<JoueurInTeam> FaitPartie = faitpartieHandler.getAllJoueursInTeamLeftJoin();
               
-            for (Map.Entry<Integer, Integer> entry : FaitPartie.entrySet())
+            for (JoueurInTeam entry : FaitPartie)
             {
-                int JoueurId = entry.getKey();
-                int EquipeId = entry.getValue();
-                Equipe eq = equipeHandler.getEquipe(EquipeId);
-                Joueur j = joueurHandler.getJoueur(JoueurId);
+                
+                Equipe eq = equipeHandler.getEquipe(entry.equipeid);
+                Joueur j = joueurHandler.getJoueur(entry.id);
                 %>
                 
-                <tr><td><%=j.id %></td><td><%=j.nom %></td><td><%=j.prenom %></td><td><%=eq.id %></td><td><%=eq.nom %></td></tr>   
+                <tr><td><%=j.id %></td><td><%=j.nom %></td><td><%=j.prenom %></td>
+                    <% if (eq != null)
+                    {%>
+                    <td><%=eq.id %></td><td><%=eq.nom %></td>
+                 <% 
+                    }%>
+                </tr>   
                 <%
             }
               } else

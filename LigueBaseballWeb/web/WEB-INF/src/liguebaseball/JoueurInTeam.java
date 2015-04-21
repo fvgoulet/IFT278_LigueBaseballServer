@@ -15,8 +15,8 @@ import java.sql.Date;
 public class JoueurInTeam extends Joueur
 {
 
-    int equipeid;
-    int numero;
+    public int equipeid;
+    public int numero;
     Date debut;
     Date fin;
 
